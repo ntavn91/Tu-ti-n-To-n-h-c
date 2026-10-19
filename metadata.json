@@ -1,0 +1,8 @@
+{
+  "name": "Tu Tiên Toán Học",
+  "description": "Ứng dụng Tu Tiên Toán Học luyện tư duy và vượt 10 cửa ải thử thách Toán học dành cho học sinh trên điện thoại và máy tính.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

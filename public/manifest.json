@@ -1,0 +1,20 @@
+{
+  "id": "/",
+  "name": "Tu Tiên Toán Học | Đại Năng Nguyễn Tuấn Anh",
+  "short_name": "Tu Tiên Toán",
+  "description": "Điểm số của ta, do ta quyết định! Ứng dụng luyện tư duy và vượt 10 cửa ải Toán học.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#09172c",
+  "theme_color": "#09172c",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

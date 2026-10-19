@@ -38,12 +38,12 @@ export function generateQuestion(stage: number): QuestionData {
       const deg = x + y + z;
       const prompt = "Xác định bậc và hệ số của đơn thức sau:";
       const math = `$$A = ${c}x^{${x}}y^{${y}}z^{${z}}$$`;
-      const correct = `\\text{Bậc } ${deg}; \\text{ hệ số } ${c}`;
+      const correct = `$\\text{Bậc } ${deg};\\; \\text{hệ số } ${c}$`;
       const opts = makeUniqueOptions(correct, [
-        `\\text{Bậc } ${deg + 1}; \\text{ hệ số } ${c}`,
-        `\\text{Bậc } ${deg}; \\text{ hệ số } ${-c}`,
-        `\\text{Bậc } ${deg - 1}; \\text{ hệ số } ${c}`,
-        `\\text{Bậc } ${deg}; \\text{ hệ số } ${c > 0 ? c * 2 : Math.floor(c / 2)}`
+        `$\\text{Bậc } ${deg + 1};\\; \\text{hệ số } ${c}$`,
+        `$\\text{Bậc } ${deg};\\; \\text{hệ số } ${-c}$`,
+        `$\\text{Bậc } ${deg - 1};\\; \\text{hệ số } ${c}$`,
+        `$\\text{Bậc } ${deg};\\; \\text{hệ số } ${c > 0 ? c * 2 : Math.floor(c / 2)}$`
       ]);
       const explanation = `• Bậc của đơn thức có hệ số khác 0 là tổng số mũ của tất cả các biến: $${x} + ${y} + ${z} = ${deg}$.\\n• Hệ số là phần số đứng trước các biến: $${c}$.`;
 
@@ -71,12 +71,12 @@ export function generateQuestion(stage: number): QuestionData {
       const subCoef = rand(2, 7);
       const prompt = "Tìm bậc của đa thức sau (lưu ý rút gọn trước khi xác định):";
       const math = `$$P = ${a}x^{${cancelPow}}y - ${subCoef}x^{${p}}y^{${qP}} + 3xy - ${a}x^{${cancelPow}}y + 9$$`;
-      const correct = `\\text{Bậc } ${trueDeg}`;
+      const correct = `$\\text{Bậc } ${trueDeg}$`;
       const opts = makeUniqueOptions(correct, [
-        `\\text{Bậc } ${cancelPow + 1}`,
-        `\\text{Bậc } ${trueDeg + 1}`,
-        `\\text{Bậc } ${trueDeg - 1}`,
-        `\\text{Bậc } ${cancelPow}`
+        `$\\text{Bậc } ${cancelPow + 1}$`,
+        `$\\text{Bậc } ${trueDeg + 1}$`,
+        `$\\text{Bậc } ${trueDeg - 1}$`,
+        `$\\text{Bậc } ${cancelPow}$`
       ]);
       const explanation = `• Thu gọn đa thức: Hạng tử $${a}x^{${cancelPow}}y$ và $-${a}x^{${cancelPow}}y$ đối nhau triệt tiêu.\\n• Biểu thức còn lại: $P = -${subCoef}x^{${p}}y^{${qP}} + 3xy + 9$.\\n• Bậc cao nhất là của hạng tử $-${subCoef}x^{${p}}y^{${qP}}$ có số mũ là $${p} + ${qP} = ${trueDeg}$.`;
 
@@ -106,12 +106,12 @@ export function generateQuestion(stage: number): QuestionData {
       const xyText = sXY === 0 ? "" : (sXY > 0 ? ` + ${sXY}xy` : ` - ${Math.abs(sXY)}xy`);
       const prompt = "Tính tổng hai đa thức $A + B$ biết:";
       const math = `$$A = ${a}x^2 + ${b}xy, \\quad B = ${c}x^2 - ${d}xy + ${e}y^2$$`;
-      const correct = `${sX2}x^2${xyText} + ${e}y^2`;
+      const correct = `$${sX2}x^2${xyText} + ${e}y^2$`;
       const opts = makeUniqueOptions(correct, [
-        `${sX2 + 1}x^2${xyText} + ${e}y^2`,
-        `${sX2}x^2 + ${b + d}xy + ${e}y^2`,
-        `${sX2}x^2${xyText} - ${e}y^2`,
-        `${sX2}x^2 + ${e}y^2`
+        `$${sX2 + 1}x^2${xyText} + ${e}y^2$`,
+        `$${sX2}x^2 + ${b + d}xy + ${e}y^2$`,
+        `$${sX2}x^2${xyText} - ${e}y^2$`,
+        `$${sX2}x^2 + ${e}y^2$`
       ]);
       const explanation = `• Nhóm các hạng tử đồng dạng:\\n$A + B = (${a}x^2 + ${c}x^2) + (${b}xy - ${d}xy) + ${e}y^2 = ${sX2}x^2${xyText} + ${e}y^2$.`;
 
@@ -143,36 +143,36 @@ export function generateQuestion(stage: number): QuestionData {
       if (type === 1) {
         const prompt = "Khai triển hằng đẳng thức bình phương của một tổng:";
         const math = `$$(${aS}x + ${bS}y)^2$$`;
-        const correct = `${a2 === 1 ? "" : a2}x^2 + ${ab2}xy + ${b2}y^2`;
+        const correct = `$${a2 === 1 ? "" : a2}x^2 + ${ab2}xy + ${b2}y^2$`;
         const opts = makeUniqueOptions(correct, [
-          `${a2 === 1 ? "" : a2}x^2 + ${a * b}xy + ${b2}y^2`,
-          `${a2 === 1 ? "" : a2}x^2 + ${ab2}xy + ${b * 2}y^2`,
-          `${a2 === 1 ? "" : a2}x^2 - ${ab2}xy + ${b2}y^2`,
-          `${a2 === 1 ? "" : a2}x^2 + ${b2}y^2`
+          `$${a2 === 1 ? "" : a2}x^2 + ${a * b}xy + ${b2}y^2$`,
+          `$${a2 === 1 ? "" : a2}x^2 + ${ab2}xy + ${b * 2}y^2$`,
+          `$${a2 === 1 ? "" : a2}x^2 - ${ab2}xy + ${b2}y^2$`,
+          `$${a2 === 1 ? "" : a2}x^2 + ${b2}y^2$`
         ]);
         const explanation = `Áp dụng hằng đẳng thức $(A + B)^2 = A^2 + 2AB + B^2$:\\n$(${aS}x + ${bS}y)^2 = (${aS}x)^2 + 2(${aS}x)(${bS}y) + (${bS}y)^2 = ${a2 === 1 ? "" : a2}x^2 + ${ab2}xy + ${b2}y^2$.`;
         return { n: 4, tag: "Hằng đẳng thức", emoji: "✨", title: "Thần Cơ Diệu Toán", prompt, math, opts, correct, correctIndex: opts.indexOf(correct), explanation };
       } else if (type === 2) {
         const prompt = "Khai triển hằng đẳng thức bình phương của một hiệu:";
         const math = `$$(${aS}x - ${bS}y)^2$$`;
-        const correct = `${a2 === 1 ? "" : a2}x^2 - ${ab2}xy + ${b2}y^2`;
+        const correct = `$${a2 === 1 ? "" : a2}x^2 - ${ab2}xy + ${b2}y^2$`;
         const opts = makeUniqueOptions(correct, [
-          `${a2 === 1 ? "" : a2}x^2 - ${a * b}xy + ${b2}y^2`,
-          `${a2 === 1 ? "" : a2}x^2 + ${ab2}xy + ${b2}y^2`,
-          `${a2 === 1 ? "" : a2}x^2 - ${ab2}xy - ${b2}y^2`,
-          `${a2 === 1 ? "" : a2}x^2 - ${b2}y^2`
+          `$${a2 === 1 ? "" : a2}x^2 - ${a * b}xy + ${b2}y^2$`,
+          `$${a2 === 1 ? "" : a2}x^2 + ${ab2}xy + ${b2}y^2$`,
+          `$${a2 === 1 ? "" : a2}x^2 - ${ab2}xy - ${b2}y^2$`,
+          `$${a2 === 1 ? "" : a2}x^2 - ${b2}y^2$`
         ]);
         const explanation = `Áp dụng hằng đẳng thức $(A - B)^2 = A^2 - 2AB + B^2$:\\n$(${aS}x - ${bS}y)^2 = (${aS}x)^2 - 2(${aS}x)(${bS}y) + (${bS}y)^2 = ${a2 === 1 ? "" : a2}x^2 - ${ab2}xy + ${b2}y^2$.`;
         return { n: 4, tag: "Hằng đẳng thức", emoji: "✨", title: "Thần Cơ Diệu Toán", prompt, math, opts, correct, correctIndex: opts.indexOf(correct), explanation };
       } else {
         const prompt = "Phân tích đa thức thành nhân tử theo hằng đẳng thức hiệu hai bình phương:";
         const math = `$$${a2 === 1 ? "" : a2}x^2 - ${b2}y^2$$`;
-        const correct = `(${aS}x - ${bS}y)(${aS}x + ${bS}y)`;
+        const correct = `$(${aS}x - ${bS}y)(${aS}x + ${bS}y)$`;
         const opts = makeUniqueOptions(correct, [
-          `(${aS}x - ${bS}y)^2`,
-          `(${aS}x + ${bS}y)^2`,
-          `(${a2}x - ${b2}y)(${a2}x + ${b2}y)`,
-          `(${aS}x - ${bS}y)`
+          `$(${aS}x - ${bS}y)^2$`,
+          `$(${aS}x + ${bS}y)^2$`,
+          `$(${a2}x - ${b2}y)(${a2}x + ${b2}y)$`,
+          `$(${aS}x - ${bS}y)$`
         ]);
         const explanation = `Áp dụng hằng đẳng thức $A^2 - B^2 = (A - B)(A + B)$:\\n$${a2 === 1 ? "" : a2}x^2 - ${b2}y^2 = (${aS}x)^2 - (${bS}y)^2 = (${aS}x - ${bS}y)(${aS}x + ${bS}y)$.`;
         return { n: 4, tag: "Hằng đẳng thức", emoji: "✨", title: "Thần Cơ Diệu Toán", prompt, math, opts, correct, correctIndex: opts.indexOf(correct), explanation };
@@ -188,12 +188,12 @@ export function generateQuestion(stage: number): QuestionData {
       const val = c1 * (xV * xV) * yV - c2 * xV * (yV * yV);
       const prompt = `Tính giá trị của biểu thức $Q$ tại $x = ${xV}, y = ${yV}$:`;
       const math = `$$Q = ${c1 === 1 ? "" : c1}x^2y - ${c2 === 1 ? "" : c2}xy^2$$`;
-      const correct = `${val}`;
+      const correct = `$${val}$`;
       const opts = makeUniqueOptions(correct, [
-        `${val + rand(2, 5)}`,
-        `${val - rand(2, 5)}`,
-        `${-val}`,
-        `${val + 1}`
+        `$${val + rand(2, 5)}$`,
+        `$${val - rand(2, 5)}$`,
+        `$${-val}$`,
+        `$${val + 1}$`
       ]);
       const explanation = `Thay $x = ${xV}$ và $y = ${yV}$ vào biểu thức:\\n$Q = ${c1} \\cdot (${xV})^2 \\cdot (${yV}) - ${c2} \\cdot (${xV}) \\cdot (${yV})^2 = ${c1} \\cdot ${xV * xV} \\cdot (${yV}) - ${c2} \\cdot (${xV}) \\cdot ${yV * yV} = ${c1 * xV * xV * yV} - (${c2 * xV * yV * yV}) = ${val}$.`;
 
@@ -217,12 +217,12 @@ export function generateQuestion(stage: number): QuestionData {
       const degB = 180 - degA;
       const prompt = `Cho hình bình hành $ABCD$ có góc $\\widehat{A} = ${degA}^\\circ$. Tính số đo góc $\\widehat{B}$ kề với góc $\\widehat{A}$:`;
       const math = `$$\\widehat{A} = ${degA}^\\circ, \\quad AB // CD, \\quad AD // BC$$`;
-      const correct = `${degB}^\\circ`;
+      const correct = `$${degB}^\\circ$`;
       const opts = makeUniqueOptions(correct, [
-        `${degA}^\\circ`,
-        `${180 - Math.floor(degB / 2)}^\\circ`,
-        `90^\\circ`,
-        `${degB - 10}^\\circ`
+        `$${degA}^\\circ$`,
+        `$${180 - Math.floor(degB / 2)}^\\circ$`,
+        `$90^\\circ$`,
+        `$${degB - 10}^\\circ$`
       ]);
       const explanation = `Trong hình bình hành, hai góc kề một cạnh bù nhau (tổng bằng $180^\\circ$ vì là hai góc trong cùng phía của hai đường thẳng song song).\\nDo đó: $\\widehat{B} = 180^\\circ - \\widehat{A} = 180^\\circ - ${degA}^\\circ = ${degB}^\\circ$.`;
 
@@ -249,12 +249,12 @@ export function generateQuestion(stage: number): QuestionData {
       const nc = an * mult;
       const prompt = `Cho $\\triangle ABC$, lấy $M \\in AB$ và $N \\in AC$ sao cho $MN // BC$. Biết $AM = ${am}\\text{ cm}$, $MB = ${mb}\\text{ cm}$, $AN = ${an}\\text{ cm}$. Tính độ dài đoạn thẳng $NC$:`;
       const math = `$$\\frac{AM}{MB} = \\frac{AN}{NC} \\quad (MN // BC)$$`;
-      const correct = `${nc}\\text{ cm}`;
+      const correct = `$${nc}\\text{ cm}$`;
       const opts = makeUniqueOptions(correct, [
-        `${nc + mult}\\text{ cm}`,
-        `${Math.max(1, nc - mult)}\\text{ cm}`,
-        `${an + mb}\\text{ cm}`,
-        `${nc * 2}\\text{ cm}`
+        `$${nc + mult}\\text{ cm}$`,
+        `$${Math.max(1, nc - mult)}\\text{ cm}$`,
+        `$${an + mb}\\text{ cm}$`,
+        `$${nc * 2}\\text{ cm}$`
       ]);
       const explanation = `Theo định lý Thales trong $\\triangle ABC$ có $MN // BC$:\\n$$\\frac{AM}{MB} = \\frac{AN}{NC} \\implies NC = \\frac{MB \\cdot AN}{AM} = \\frac{${mb} \\cdot ${an}}{${am}} = ${nc}\\text{ cm}.$$`;
 
@@ -278,12 +278,12 @@ export function generateQuestion(stage: number): QuestionData {
       const bc = mn * 2;
       const prompt = `Cho $\\triangle ABC$, gọi $M, N$ lần lượt là trung điểm của $AB$ và $AC$. Biết độ dài đoạn $MN = ${mn}\\text{ cm}$. Tính độ dài cạnh đáy $BC$:`;
       const math = `$$MN \\text{ là đường trung bình của } \\triangle ABC, \\quad MN = ${mn}\\text{ cm}$$`;
-      const correct = `${bc}\\text{ cm}`;
+      const correct = `$${bc}\\text{ cm}$`;
       const opts = makeUniqueOptions(correct, [
-        `${mn}\\text{ cm}`,
-        `${Math.floor(mn / 2)}\\text{ cm}`,
-        `${bc + 4}\\text{ cm}`,
-        `${bc - 3}\\text{ cm}`
+        `$${mn}\\text{ cm}$`,
+        `$${Math.floor(mn / 2)}\\text{ cm}$`,
+        `$${bc + 4}\\text{ cm}$`,
+        `$${bc - 3}\\text{ cm}$`
       ]);
       const explanation = `Vì $M, N$ lần lượt là trung điểm của $AB, AC$ nên $MN$ là đường trung bình của $\\triangle ABC$.\\nTính chất đường trung bình: $MN = \\frac{1}{2} BC \\implies BC = 2 \\cdot MN = 2 \\cdot ${mn} = ${bc}\\text{ cm}$.`;
 
@@ -308,12 +308,12 @@ export function generateQuestion(stage: number): QuestionData {
       const sVal = aVal * aVal;
       const prompt = `Một mảnh đất hình vuông có chu vi $C = ${cVal}\\text{ cm}$. Hãy tính diện tích $S$ của hình vuông đó:`;
       const math = `$$C = 4a = ${cVal}\\text{ cm} \\implies S = a^2 = ?$$`;
-      const correct = `${sVal}\\text{ cm}^2`;
+      const correct = `$${sVal}\\text{ cm}^2$`;
       const opts = makeUniqueOptions(correct, [
-        `${cVal}\\text{ cm}^2`,
-        `${Math.floor(sVal / 2)}\\text{ cm}^2`,
-        `${cVal * 2}\\text{ cm}^2`,
-        `${sVal + aVal}\\text{ cm}^2`
+        `$${cVal}\\text{ cm}^2$`,
+        `$${Math.floor(sVal / 2)}\\text{ cm}^2$`,
+        `$${cVal * 2}\\text{ cm}^2$`,
+        `$${sVal + aVal}\\text{ cm}^2$`
       ]);
       const explanation = `• Độ dài cạnh hình vuông: $a = \\frac{C}{4} = \\frac{${cVal}}{4} = ${aVal}\\text{ cm}$.\\n• Diện tích hình vuông: $S = a^2 = ${aVal}^2 = ${sVal}\\text{ cm}^2$.`;
 
@@ -338,12 +338,12 @@ export function generateQuestion(stage: number): QuestionData {
       const prompt = `Tính giá trị của biểu thức $P$ với số mũ chẵn lớn đối xứng:`;
       const math = `$$P = xyz + x^2y^2z^2 + x^3y^3z^3 + \\dots + x^{${year}}y^{${year}}z^{${year}}$$
 Biết rằng: $x = 1, \\quad y = 1, \\quad z = -1$.`;
-      const correct = `0`;
+      const correct = `$0$`;
       const opts = makeUniqueOptions(correct, [
-        `1`,
-        `-1`,
-        `${year}`,
-        `2`
+        `$1$`,
+        `$-1$`,
+        `$${year}$`,
+        `$2$`
       ]);
       const explanation = `• Ta có: $xyz = 1 \\cdot 1 \\cdot (-1) = -1$.\\n• Do đó các số hạng: $(xyz)^k = (-1)^k$.\\n• Biểu thức trở thành:\\n$P = (-1)^1 + (-1)^2 + (-1)^3 + (-1)^4 + \\dots + (-1)^{${year}}$.\\n• Đây là tổng của $${year}$ số hạng (số chẵn), cứ mỗi cặp liên tiếp $(-1) + (+1) = 0$.\\n• Số cặp là $${year} / 2$, do đó tổng $P = 0$.`;
 

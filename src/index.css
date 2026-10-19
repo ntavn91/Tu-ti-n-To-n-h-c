@@ -24,8 +24,13 @@
 }
 
 .katex {
-  font-size: 1.1em;
+  font-size: 1.08em;
   text-rendering: auto;
+  color: inherit;
+}
+
+.katex .base {
+  white-space: nowrap;
 }
 
 /* Custom scrollbars */
